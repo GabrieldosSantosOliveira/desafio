@@ -1,82 +1,81 @@
 const handleChangeLeft = () => {
-  const coordenadas = document.getElementById("location").textContent;
-  const lat = coordenadas.split(",");
+  const currentCordinates = document.getElementById("location").textContent;
+  const nowCordinates = currentCordinates.split(",");
 
-  switch (lat[2]) {
+  switch (nowCordinates[2]) {
     case "N":
-      lat[2] = "W";
+      nowCordinates[2] = "W";
       break;
     case "S":
-      lat[2] = "E";
+      nowCordinates[2] = "E";
       break;
     case "E":
-      lat[2] = "N";
+      nowCordinates[2] = "N";
       break;
     case "W":
-      lat[2] = "S";
+      nowCordinates[2] = "S";
       break;
   }
-  document.getElementById("location").innerText = lat.join(",");
+  document.getElementById("location").innerText = nowCordinates.join(",");
 };
 const handleChangeRight = () => {
-  const coordenadas = document.getElementById("location").textContent;
-  const lat = coordenadas.split(",");
+  const currentCordinates = document.getElementById("location").textContent;
+  const nowCordinates = currentCordinates.split(",");
 
-  switch (lat[2]) {
+  switch (nowCordinates[2]) {
     case "N":
-      lat[2] = "E";
+      nowCordinates[2] = "E";
       break;
     case "S":
-      lat[2] = "W";
+      nowCordinates[2] = "W";
       break;
     case "E":
-      lat[2] = "S";
+      nowCordinates[2] = "S";
       break;
     case "W":
-      lat[2] = "N";
+      nowCordinates[2] = "N";
       break;
   }
-  document.getElementById("location").innerText = lat.join(",");
+  document.getElementById("location").innerText = nowCordinates.join(",");
 };
 const handleChangePosition = () => {
-  const coordenadas = document.getElementById("location").textContent;
-  const lat = coordenadas.split(",");
+  const currentCordinates = document.getElementById("location").textContent;
+  const nowCordinates = currentCordinates.split(",");
 
-  switch (lat[2]) {
+  switch (nowCordinates[2]) {
     case "N":
-      if (lat[1] < 5) {
-        lat[1]++;
+      if (nowCordinates[1] < 5) {
+        nowCordinates[1]++;
       }
       break;
     case "S":
-      if (lat[1] > 0) {
-        lat[1]--;
+      if (nowCordinates[1] > 0) {
+        nowCordinates[1]--;
       }
       break;
     case "E":
-      if (lat[0] < 5) {
-        lat[0]++;
+      if (nowCordinates[0] < 5) {
+        nowCordinates[0]++;
       }
       break;
     case "W":
-      if (lat[0] > 0) {
-        lat[0]--;
+      if (nowCordinates[0] > 0) {
+        nowCordinates[0]--;
       }
       break;
   }
 
-  document.getElementById("location").innerText = lat.join(",");
+  document.getElementById("location").innerText = nowCordinates.join(",");
 };
 function control() {
-  const coordenadas = document.getElementById("control").value;
-
-  const lat = coordenadas.split("");
-  for (let i = 0; i < lat.length; i++) {
-    if (lat[i] === "L") {
+  const confirmedCoordinates = document.getElementById("control").value;
+  const newCoordinates = confirmedCoordinates.split("");
+  for (let i = 0; i < newCoordinates.length; i++) {
+    if (newCoordinates[i] === "L") {
       handleChangeLeft();
-    } else if (lat[i] === "R") {
+    } else if (newCoordinates[i] === "R") {
       handleChangeRight();
-    } else if (lat[i] === "M") {
+    } else if (newCoordinates[i] === "M") {
       handleChangePosition();
     }
   }
